@@ -27,6 +27,10 @@ import urllib
 from telethon.tl.custom import Button 
 from telethon import events, errors, custom, functions
 from userbot import CMD_LIST, CMD_HELP
+from userbot.javes_main.heroku_var import config as Config
+from userbot.javes_main.heroku_var import config as Var
+from userbot.javes_main.heroku_var import config as var
+from userbot.javes_main.heroku_var import config
 import io
 #ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai 
 #Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
@@ -40,7 +44,6 @@ from math import ceil
 import requests
 from telethon import Button, custom, events, functions
 #from youtubesearchpython import SearchVideos
-from userbot.javes_main.heroku_var import Var
 from userbot import ALIVE_NAME, CMD_HELP, CMD_LIST
 #A stark bhai chori karna aaya ho kya friday me ek bar back btn kang kar k man nahi bhara 
 #Agar stark nahi ho to kon hai be tu jo bhi hai kang karna he aaya hai mera back , open btn so get lost
@@ -56,15 +59,15 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
        
   #       🇮 🇹 🇳 🇦    🇰 🇾 🇺   🇸 🇵 🇾     🇰 🇷    🇷 🇭 🇪     🇭 🇴      🇸 🇭 🇦 🇦 🇩 🇮    🇰 🇷 🇳 🇮    🇭    🇰 🇾 🇦   🇧 🇸 🇩 🇰 
 
-    @tgbot.on(events.InlineQuery(pattern=r"helpr"))  # pylint:disable=E0602
+    @tgbot.on(events.InlineQuery(pattern=r"help"))  # pylint:disable=E0602
     async def inline_id_handler(event: events.InlineQuery.Event):
         builder = event.builder
         result = None
         query = event.text
         me = await client.get_me()
-        if event.query.user_id == me.id and query.startswith("helpr"):
+        if event.query.user_id == me.id and query.startswith("help"):
             rev_text = query[::-1]
-            dc = paginate_help(0, CMD_HELP, "helpr")
+            dc = paginate_help(0, CMD_HELP, "help")
             result = builder.article(" Userbot Help",text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_HELP)),buttons=dc,link_preview=False)
             await event.answer([result] if result else None)
         else:
