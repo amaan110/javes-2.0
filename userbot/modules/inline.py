@@ -27,10 +27,7 @@ import urllib
 from telethon.tl.custom import Button 
 from telethon import events, errors, custom, functions
 from userbot import CMD_LIST, CMD_HELP
-from userbot.javes_main.heroku_var import config as Config
 from userbot.javes_main.heroku_var import config as Var
-from userbot.javes_main.heroku_var import config as var
-from userbot.javes_main.heroku_var import config
 import io
 #ABEE O KANGAR  BACK OPEN CLSE BTN KANG KIYA TO YE LONE CHIPKA DENA AUR GLOBALS K BINA NAHI CHALAGA aur global 5 gaja diff name and manipulation se imported hai 
 #Making The Back Command Was The Toughest Work #by @Shivam_Patel,@The_Siddharth_Nigam,@danish_00,@ProgrammingError also v changed Pop up or inline help to text
@@ -164,7 +161,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             me = await client.get_me()
             if event.query.user_id == me.id :
                 sh1vam = [custom.Button.inline("◤✞ 𝕲𝖔 𝕭𝖆𝖈𝖐 ✞◥",data="backr({})".format(shivam)),custom.Button.inline("◤✞ 𝕮𝖑𝖔𝖘𝖊 ✞◥", data="closer")]
-                halps = "Do .hlp {} to get the list of commands.".format(plugin_name)
+                halps = "Do .help {} to get the list of commands.".format(plugin_name)
                 await event.edit(halps,buttons=sh1vam)
             else:
                 reply_pop_up_alert = "Please get your own Userbot"
@@ -214,10 +211,10 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             if event.query.user_id == me.id :
                 try:
                     current_page_number = int(event.data_match.group(1).decode("UTF-8"))
-                    buttons = paginate_help(current_page_number, CMD_HELP, "helpr")
+                    buttons = paginate_help(current_page_number, CMD_HELP, "help")
                     await event.edit("`>>> Here Is The Main Menu `", buttons=buttons)
                 except:
-                    buttons = paginate_help(0, CMD_HELP, "helpr")
+                    buttons = paginate_help(0, CMD_HELP, "help")
                     await event.edit("`>>> Here Is The Main Menu `", buttons=buttons)
             else:
                 reply_pop_up_alert = "Please get your own Userbot"
