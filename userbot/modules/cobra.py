@@ -83,7 +83,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 event.data_match.group(1).decode("UTF-8"))
             
             dc = paginate_help(
-                current_page_number + 1, CMD_HELP, "helpr")
+                current_page_number + 1, CMD_HELP, "help")
           
             await event.edit(buttons=dc)
         else:
@@ -102,7 +102,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             dc = paginate_help(
                 current_page_number - 1,
                 CMD_HELP,  # pylint:disable=E0602
-                "helpr"
+                "help"
             )
             
             await event.edit(buttons=dc)
